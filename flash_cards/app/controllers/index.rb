@@ -4,6 +4,7 @@ get '/' do
     @user_id = session[:user_id]
     erb :index
   else
+    session[:message] = nil
     redirect to '/login'
   end
 end
