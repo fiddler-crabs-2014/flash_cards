@@ -5,10 +5,16 @@ $(document).ready(function() {
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 
-  $(".inner-card").on("click", function(){
+  $("#answer_box").on("submit", function(e){
+
+    e.preventDefault();
+
     $("#question").addClass("hidden");
+    $("#answer_box").addClass("hidden");
     $("#answer").removeClass("hidden");
     $("#next_question").removeClass("hidden");
+
+
   });
 
 });

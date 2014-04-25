@@ -16,7 +16,7 @@ post '/login' do
   @user = User.authenticate(email, password)
   if @user
     session[:user_id] = @user.id
-    erb :index
+    redirect to '/decks_display'
   else
     session[:message] = ["That does not match our records!"]
     redirect to '/login'
@@ -32,7 +32,7 @@ post '/sign_up' do
   @user = User.create({email: @email, password: @password, name: @name})
   if @user.valid?
     session[:user_id] = @user.id
-    erb :index
+    erb :decks_display
   else
     session[:message] = @user.errors.full_messages
     redirect to 'login'
