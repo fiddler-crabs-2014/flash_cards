@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="inner-card">
+
+    <p id="question">
+      <% puts "QUESTION IN VIEW #{@question}" %>
+      <%= @question %>
+    </p>
+
+    <p id="answer" class="hidden">
+      <%= @answer %>
+    </p>
+
+  </div>
+</div>
+
+<form action="/answer" method="post" id="answer_box">
+  <input type="hidden" name="card_id" value="<%= @id %>">
+  <input type="textbox" name="answer" placeholder="What's your answer?">
+  <input type="submit" value="Submit Answer" class="orange_btn">
+</form>
+
+<form action="/go_to_deck/<%= @deck_id %>" id="next_question" class="hidden">
+  <input type="submit" value="Next Question" class="orange_btn">
+</form>
+<% @round_score = Round.find(session[:round_id]).score %>
+
+<p class="center">Score: <%= @round_score %></p>
+
+
+
