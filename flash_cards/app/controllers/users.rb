@@ -1,6 +1,8 @@
 
 get '/login' do
-
+  # @message = false
+  # @text = "what you like to do"
+  @message = session[:message]
   erb :login
 end
 
@@ -16,7 +18,7 @@ post '/login' do
     session[:user_id] = @user.id
     erb :index
   else
-   # @message = "that does not match our records"
+    session[:message] = ["That does not match our records!"]
     redirect to '/login'
   end
 end
@@ -27,17 +29,23 @@ post '/sign_up' do
   @email = params[:email]
   @password = params[:password]
   @name = params[:name]
-  user = User.where(["email=?", @email]).first
-  if user.nil?
-    @user = User.create(email: @email, password: @password, name: @name)
+  @user = User.create({email: @email, password: @password, name: @name})
+  if @user.valid?
     session[:user_id] = @user.id
     erb :index
   else
-   #@message = "I'm sorry, someone has that email"
-    redirect to '/login'
+    session[:message] = @user.errors.full_messages
+    redirect to 'login'
   end
+
 end
 
+post '/logout' do
+  session.destroy
+  session[:message] = ["Logged out successful!!"]
+  redirect to '/login'
+
+end
 
 
 

@@ -3,6 +3,12 @@ class User < ActiveRecord::Base
   has_many :decks, :through => :rounds
   # Remember to create a migration!
 
+  #add validation
+  validates :email, presence: true, uniqueness: true
+  #validates :email, format:
+  validates :name, presence: true
+  validates :password, presence: true
+
   def self.authenticate(email, password)
     @user = User.where(email: email).first
     if @user.nil?
