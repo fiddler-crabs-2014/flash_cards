@@ -24,7 +24,7 @@
 </form>
 <% @round_score = Round.find(session[:round_id]).score %>
 
-<p class="center">Score: <%= @round_score %></p>
+<p class="center">Score: <span id="score"><%= @round_score %></span></p>
 
 
 

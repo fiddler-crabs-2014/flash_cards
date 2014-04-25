@@ -36,6 +36,7 @@ th {
   text-shadow: 0 1px 0 #D8A57C;
 }
 
+.navbar-nav li span { color: #eee; line-height: 48px; margin-right:20px;}
 #logout_btn { background: none; border: 0; margin-top: 12px; color: #999;}
 #logout_btn:hover { color: #eee;}
 
