@@ -22,22 +22,22 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top " role="navigation">
   <div class="container">
     <a class="navbar-brand" href="/">Flash Cards</a>
+    <ul class="nav navbar-nav">
     <% if session[:user_id] %>
 
-      <form method="post" action="/logout">
+      <li><form method="post" action="/logout">
         <input type="submit" value="Logout?" id="logout_btn">
-      </form>
+      </form></li>
 
       <% else %>
 
-      <ul class="nav navbar-nav">
         <li><a href="/login" title="login">Login</a></li>
-      </ul>
 
     <% end %>
+    </ul>
   </div>
 </nav>
 
