@@ -25,9 +25,9 @@
 <nav class="navbar navbar-inverse navbar-fixed-top " role="navigation">
   <div class="container">
     <a class="navbar-brand" href="/">Flash Cards</a>
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav navbar-right">
     <% if session[:user_id] %>
-
+      <li><span>Hello, <%= session[:name] %></span></li>
       <li><form method="post" action="/logout">
         <input type="submit" value="Logout?" id="logout_btn">
       </form></li>
