@@ -35,14 +35,14 @@ post '/sign_up' do
     redirect to '/decks_display'
   else
     session[:message] = @user.errors.full_messages
-    redirect to 'login'
+    redirect to '/login'
   end
 
 end
 
 post '/logout' do
   session.destroy
-  session[:message] = ["Logged out successful!!"]
+  session[:message] = ["Logged out successfully!!"]
   redirect to '/login'
 
 end
