@@ -10,9 +10,9 @@ get "/go_to_deck/:id" do
 
   @cards = Card.where("deck_id = ?", @deck_id)
 
-  sample = @cards.sample
-  @question = sample.question
-  @answer = sample.answer
+  @sample = @cards.sample
+  #@question = sample.question
+  #@answer = sample.answer
 
   erb :go_to_deck
 end

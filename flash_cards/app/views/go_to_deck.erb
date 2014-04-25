@@ -2,17 +2,18 @@
   <div class="inner-card">
 
     <p id="question">
-      <%= @question %>
+      <%= @sample.question %>
     </p>
 
     <p id="answer" class="hidden">
-      <%= @answer %>
+      <%= @sample.answer %>
     </p>
 
   </div>
 </div>
 
 <form action="/answer" method="post" id="answer_box">
+  <input type="hidden" name="card_id" value="<%= @sample.id %>">
   <input type="textbox" name="answer" placeholder="What's your answer?">
   <input type="submit" value="Submit Answer" class="orange_btn">
 </form>
