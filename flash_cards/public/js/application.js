@@ -4,4 +4,11 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+
+  $(".inner-card").on("click", function(){
+    $("#question").addClass("hidden");
+    $("#answer").removeClass("hidden");
+    $("#next_question").removeClass("hidden");
+  });
+
 });
