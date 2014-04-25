@@ -1,6 +1,5 @@
 <div class="container">
   <h1>Welcome to a moderately functioning FlashCard Game!</h1>
-  <p>Let's play!</p>
   <br>
   <div class="error">
   <% if @message %>
@@ -11,23 +10,24 @@
   <% end %>
   </div>
 
-  <p>Login to start:</p>
-  <br>
-    <form method="post" action="/login">
+  <div id="login">
+    <p>Login to start:</p>
+      <form method="post" action="/login">
+        Email: <input type="text" name="email"><br><br>
+        Password: <input type="password" name="password"><br><br>
+        <input type="submit" value="Login" class="orange_btn">
+      </form>
+  </div>
+
+  <div id="logout">
+    <p>Or Create a new user! </p>
+    <form method="post" action="/sign_up">
+      Name: <input type="text" name="name"><br><br>
       Email: <input type="text" name="email"><br><br>
       Password: <input type="password" name="password"><br><br>
-      <input type="submit" value="Login">
+      <input type="submit" value="Sign Up!" class="orange_btn">
     </form>
-  <br>
-  <br>
-  <p>Or Create a new user! </p>
-  <form method="post" action="/sign_up">
-    Name: <input type="text" name="name"><br><br>
-    Email: <input type="text" name="email"><br><br>
-    Desired Password: <input type="password" name="password"><br><br>
-    <input type="submit" value="Sign Up!">
-  </form>
-
+  </div>
 
 
 </div>
