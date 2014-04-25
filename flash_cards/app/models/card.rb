@@ -5,7 +5,7 @@ class Card < ActiveRecord::Base
 
   def correct_answer?(guess)
     #@card = Card.where(question: question)
-    if @answer == guess
+    if self.answer == guess
       return true
     else
       return false
