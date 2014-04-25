@@ -13,6 +13,7 @@
   -->
   <link rel="stylesheet" href="/css/application.css">
   <link rel="stylesheet" href="/css/cards.css">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
@@ -21,11 +22,25 @@
 </head>
 <body>
 
-  <% if session[:user_id] %>
-    <form method="post" action="/logout">
-      <input type="submit" value="Logout?">
-    </form>
-  <% end %>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <a class="navbar-brand" href="/">Flash Cards</a>
+    <% if session[:user_id] %>
+
+      <form method="post" action="/logout">
+        <input type="submit" value="Logout?" id="logout_btn">
+      </form>
+
+      <% else %>
+
+      <ul class="nav navbar-nav">
+        <li><a href="/login" title="login">Login</a></li>
+      </ul>
+
+    <% end %>
+  </div>
+</nav>
+
 
   <%= yield %>
 </body>
