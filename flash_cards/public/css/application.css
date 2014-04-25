@@ -24,7 +24,20 @@ th {
   font-family: Verdana;
 }
 
-#logout_btn { background: none; border: 0; margin-top: 12px;}
+.orange_btn:hover {
+  background: #fb9d23;
+  background: -moz-linear-gradient(top,  #fb9d23 0%, #ffc578 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fb9d23), color-stop(100%,#ffc578));
+  background: -webkit-linear-gradient(top,  #fb9d23 0%,#ffc578 100%);
+  background: -o-linear-gradient(top,  #fb9d23 0%,#ffc578 100%);
+  background: -ms-linear-gradient(top,  #fb9d23 0%,#ffc578 100%);
+  background: linear-gradient(to bottom,  #fb9d23 0%,#ffc578 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fb9d23', endColorstr='#ffc578',GradientType=0 );
+  text-shadow: 0 1px 0 #D8A57C;
+}
+
+#logout_btn { background: none; border: 0; margin-top: 12px; color: #999;}
+#logout_btn:hover { color: #eee;}
 
 #login, #logout {
   float: left;

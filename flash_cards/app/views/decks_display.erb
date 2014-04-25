@@ -1,6 +1,6 @@
 <ul>
 <% @decks.each do |deck| %>
-  <li>
+  <li class="card_decks">
     <a href="/go_to_deck/<%= deck.id %>" alt="><%= deck.id %>">
       <%= deck.name %>
     </a>
