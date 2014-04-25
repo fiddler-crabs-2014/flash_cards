@@ -13,7 +13,7 @@
 </div>
 
 <form action="/answer" method="post" id="answer_box">
-  <input type="hidden" value="<%= @sample.id %>">
+  <input type="hidden" name="card_id" value="<%= @sample.id %>">
   <input type="textbox" name="answer" placeholder="What's your answer?">
   <input type="submit" value="Submit Answer" class="orange_btn">
 </form>
