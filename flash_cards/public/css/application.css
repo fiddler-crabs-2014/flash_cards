@@ -7,3 +7,47 @@
 th {
   text-align: left;
 }
+.hidden { display: none;}
+.center { text-align: center;}
+
+.card {
+  width: 275px;
+  height: 400px;
+  display: block;
+  border: 1px solid rgba(0,0,0,0.3);
+  text-align: center;
+  box-shadow: 0px 4px 2px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  background: rgb(25, 129, 187);
+  margin: 20px auto 0;
+}
+
+.inner-card {
+  width: 245px;
+  height: 370px;
+  background: white;
+  margin: 5px auto;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#next_question {
+  margin: 20px auto 10px;
+  width: 128px;
+}
+
+#next_question input {
+  background: #ffc578;
+  background: -moz-linear-gradient(top,  #ffc578 0%, #fb9d23 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffc578), color-stop(100%,#fb9d23));
+  background: -webkit-linear-gradient(top,  #ffc578 0%,#fb9d23 100%);
+  background: -o-linear-gradient(top,  #ffc578 0%,#fb9d23 100%);
+  background: -ms-linear-gradient(top,  #ffc578 0%,#fb9d23 100%);
+  background: linear-gradient(to bottom,  #ffc578 0%,#fb9d23 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc578', endColorstr='#fb9d23',GradientType=0 );
+  border: 1px solid rgb(233, 166, 81);
+  color: white;
+  text-shadow: 0 -1px 0 #9E6131;
+  border-radius: 5px;
+  font-family: Verdana;
+}
