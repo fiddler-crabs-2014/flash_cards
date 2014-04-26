@@ -6,6 +6,7 @@ class Round < ActiveRecord::Base
   def add_score
     self.score += 5
   end
+
   def subtract_score
     self.score -= 5
   end
