@@ -1,7 +1,11 @@
 get "/decks_display" do
-  @decks = Deck.all
-  session[:round_id] = nil
-  erb :decks_display
+  if session[:user_id]
+    @decks = Deck.all
+    session[:round_id] = nil
+    erb :decks_display
+  else
+    redirect to '/login'
+  end
 end
 
 post "/decks_display/:user_score" do
@@ -14,20 +18,24 @@ post "/decks_display/:user_score" do
 end
 
 get "/go_to_deck/:id" do
-  @deck_id = params[:id]
-  @cards = Card.where("deck_id = ?", @deck_id)
+  if session[:user_id]
+    @deck_id = params[:id]
+    @cards = Card.where("deck_id = ?", @deck_id)
 
-  unless session[:round_id]
-    @round =  Round.create({user_id: session[:user_id], deck_id: params[:id]})
-    session[:round_id] = @round.id
-  end
+    unless session[:round_id]
+      @round =  Round.create({user_id: session[:user_id], deck_id: params[:id]})
+      session[:round_id] = @round.id
+    end
 
-  @sample = @cards.sample
-  @question = @sample.question
-  @answer = @sample.answer
-  @id = @sample.id
+    @sample = @cards.sample
+    @question = @sample.question
+    @answer = @sample.answer
+    @id = @sample.id
 
    erb :go_to_deck, layout: false
+  else
+    redirect '/login'
+  end
 end
 
 
