@@ -1,7 +1,16 @@
 get "/decks_display" do
   @decks = Deck.all
-
+  session[:round_id] = nil
   erb :decks_display
+end
+
+post "/decks_display/:user_score" do
+  # @decks = Deck.all
+  @user_score = params[:user_score]
+  @user_id = session[:user_id]
+  @user = User.find(@user_id)
+  @user.score = @user_score
+  redirect to '/decks_display'
 end
 
 get "/go_to_deck/:id" do
@@ -9,8 +18,8 @@ get "/go_to_deck/:id" do
     @round =  Round.create({user_id: session[:user_id], deck_id: params[:id]})
     session[:round_id] = @round.id
   end
-  @deck_id = params[:id]
 
+  @deck_id = params[:id]
   @cards = Card.where("deck_id = ?", @deck_id)
 
   @sample = @cards.sample
@@ -52,3 +61,4 @@ post '/answer' do
 
   # redirect '/go_to_deck/'+@deck_id.to_s
 end
+
