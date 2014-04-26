@@ -28,6 +28,8 @@
     <ul class="nav navbar-nav navbar-right">
     <% if session[:user_id] %>
       <li><span>Hello, <%= session[:name] %></span></li>
+      <% @user_score = User.find(session[:user_id]).score %>
+      <li><span>Score: <%= @user_score %></span></li>
       <li><form method="post" action="/logout">
         <input type="submit" value="Logout?" id="logout_btn">
       </form></li>

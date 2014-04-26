@@ -20,8 +20,7 @@ $(document).ready(function() {
 
       console.log(data);
 
-      $("#score").empty().append(data)
-
+      $("#score").empty().append(data);
 
       console.log(score);
 
@@ -32,9 +31,18 @@ $(document).ready(function() {
     $("#answer").removeClass("hidden");
     $("#next_question").removeClass("hidden");
 
-
-
-
   });
+
+  // $("#end_game").on("submit", function(e){
+
+  //   e.preventDefault();
+
+  //   $("#end_game").attr("action", "/decks_display/" + data);
+
+
+
+  // });
+
+
 
 });
