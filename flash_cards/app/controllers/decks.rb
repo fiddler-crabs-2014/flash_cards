@@ -14,22 +14,20 @@ post "/decks_display/:user_score" do
 end
 
 get "/go_to_deck/:id" do
+  @deck_id = params[:id]
+  @cards = Card.where("deck_id = ?", @deck_id)
+
   unless session[:round_id]
     @round =  Round.create({user_id: session[:user_id], deck_id: params[:id]})
     session[:round_id] = @round.id
   end
 
-  @deck_id = params[:id]
-  @cards = Card.where("deck_id = ?", @deck_id)
-
   @sample = @cards.sample
   @question = @sample.question
   @answer = @sample.answer
   @id = @sample.id
-  #@question = sample.question
-  #@answer = sample.answer
 
-  erb :go_to_deck
+   erb :go_to_deck
 end
 
 
