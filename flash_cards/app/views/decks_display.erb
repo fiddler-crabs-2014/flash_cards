@@ -1,8 +1,8 @@
-<ul>
+<ul id="card_decks">
 <% @decks.each do |deck| %>
-  <li class="card_decks">
+  <li>
     <a href="/go_to_deck/<%= deck.id %>" alt="><%= deck.id %>">
-      <%= deck.name %>
+      <img src="../img/<%= deck.img %>" alt="<%= deck.name %>">
     </a>
   </li>
 <% end %>
