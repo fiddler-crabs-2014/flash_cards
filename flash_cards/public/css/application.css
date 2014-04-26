@@ -1,4 +1,7 @@
 body { padding-top: 70px; background: url('../img/gplaypattern.png');}
+body#body_1 {}
+body#body_2 {background: url('../img/chucknorrisbg.jpeg'); background-size:100%;}
+
 
 th {
   text-align: left;

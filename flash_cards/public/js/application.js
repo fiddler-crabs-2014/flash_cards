@@ -20,7 +20,7 @@ $(document).ready(function() {
 
       console.log(data);
 
-      $("#score").empty().append(data);
+      $("#score_span").empty().append(data);
 
       console.log(score);
 
@@ -30,6 +30,9 @@ $(document).ready(function() {
     $("#answer_box").addClass("hidden");
     $("#answer").removeClass("hidden");
     $("#next_question").removeClass("hidden");
+
+    $("#card").addClass("flipped");
+
 
   });
 

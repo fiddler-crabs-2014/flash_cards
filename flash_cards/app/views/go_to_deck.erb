@@ -1,17 +1,56 @@
-<div class="card">
-  <div class="inner-card">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    normalize.css removes cross-browser differences in defaults, e.g.,
+    differences in how form elements appear between Firefox and IE
+    See: http://necolas.github.com/normalize.css/
+  -->
+  <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <!--
+    application.css is where you put your styles
+  -->
+  <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" href="/css/cards.css">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-    <p id="question">
-      <% puts "QUESTION IN VIEW #{@question}" %>
-      <%= @question %>
-    </p>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
 
-    <p id="answer" class="hidden">
-      <%= @answer %>
-    </p>
+  <title></title>
+</head>
+<body id="body_<%= @deck_id %>">
 
+<nav class="navbar navbar-inverse navbar-fixed-top " role="navigation">
+  <div class="container">
+    <a class="navbar-brand" href="/">Flash Cards</a>
+    <ul class="nav navbar-nav navbar-right">
+    <% if session[:user_id] %>
+      <li><span>Hello, <%= session[:name] %></span></li>
+      <% @user_score = User.find(session[:user_id]).score %>
+      <li><span>Score: <%= @user_score %></span></li>
+      <li><form method="post" action="/logout">
+        <input type="submit" value="Logout?" id="logout_btn">
+      </form></li>
+
+      <% else %>
+
+        <li><a href="/login" title="login">Login</a></li>
+
+    <% end %>
+    </ul>
   </div>
-</div>
+</nav>
+
+<section class="card_container">
+  <div class="inner-card">
+    <div id="card">
+      <figure class="front"><%= @question %></figure>
+      <figure class="back"><%= @answer %></figure>
+    </div>
+  </div>
+</section>
 
 <form action="/answer" method="post" id="answer_box">
   <input type="hidden" name="card_id" value="<%= @id %>">
@@ -26,11 +65,12 @@
 
 <% @round_score = Round.find(session[:round_id]).score %>
 
-<p class="center">Score: <span id="score"><%= @round_score %></span></p>
+<p class="center" id="score">Score: <span id="score_span"><%= @round_score %></span></p>
 
 <form class="center" method="post" action="/decks_display/<%= @round_score %>" id="end_game">
   <input type="submit" value="End Game" class="orange_btn">
 </form>
 
 
-
+</body>
+</html>

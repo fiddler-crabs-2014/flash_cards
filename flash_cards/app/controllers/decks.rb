@@ -27,7 +27,7 @@ get "/go_to_deck/:id" do
   @answer = @sample.answer
   @id = @sample.id
 
-   erb :go_to_deck
+   erb :go_to_deck, layout: false
 end
 
 
