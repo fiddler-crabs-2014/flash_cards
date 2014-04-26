@@ -19,14 +19,14 @@
   padding: 10px;
 }
 
-.card_decks {
-  width: 245px;
-  height: 370px;
+#card_decks li {
+  width: 275px;
+  height: 400px;
   background: white;
-  margin: 13px auto;
-  border-radius: 10px;
-  padding: 10px;
+  margin: 13px 20px;
+  float: left;
   list-style-type: none;
+  box-shadow: 3px 5px 8px rgba(0,0,0,0.4);
 }
 
 #next_question {
