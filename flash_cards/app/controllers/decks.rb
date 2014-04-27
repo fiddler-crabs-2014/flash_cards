@@ -22,6 +22,8 @@ post "/decks_display/:user_score" do
     @percentage = ((@round.score.to_f/@total_questions.to_f)*100).round(2)
     @round.score = @percentage
     @round.save
+    @all_rounds = Round.where(user_id: session[:user_id], deck_id: @deck_id)
+    @num_correct = Guess.where(round_id: session[:round_id], correct: true).count
   end
   erb :statistics
 end
@@ -60,6 +62,7 @@ get "/go_to_deck/:id" do
       @question = @sample.question
       @answer = @sample.answer
       @id = @sample.id
+      @user_score = User.find(session[:user_id]).score
       erb :go_to_deck, layout: false
     else
       @random_answer = @remaining_answers.sample
@@ -68,6 +71,7 @@ get "/go_to_deck/:id" do
       @answer = @sample.answer
       @id = @sample.id
       @questions_remaining = @remaining_answers.count
+      @user_score = User.find(session[:user_id]).score
       erb :go_to_deck, layout: false
     end
 

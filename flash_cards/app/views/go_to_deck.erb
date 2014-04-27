@@ -29,7 +29,7 @@
     <ul class="nav navbar-nav navbar-right">
     <% if session[:user_id] %>
       <li><span>Hello, <%= session[:name] %></span></li>
-      <% @user_score = User.find(session[:user_id]).score %>
+      <% #@user_score = User.find(session[:user_id]).score %>
       <li><span>Score: <%= @user_score %></span></li>
       <li><form method="get" action="/show_all_results">
         <input type="submit" value="Show all Results" class="nav_btn"></form></li>
@@ -70,7 +70,7 @@
   <input type="submit" value="Next Question" class="orange_btn">
 </form>
 
-<% @round_score = Round.find(session[:round_id]).score %>
+<% #@round_score = Round.find(session[:round_id]).score %>
 
 <p class="center" id="score"><span id="score_span">&nbsp;</span></p>
 <p class="center <% if @deck_id == "2" %>hidden<% end %>" id="counter"> Questions Remaining: <span id="counter"><%= @questions_remaining %></span></p>
