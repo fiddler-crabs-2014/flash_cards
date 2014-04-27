@@ -73,7 +73,7 @@ or
 Causes unconditional re-execution of a code block, with the same parameter bindings as the current execution.
 redo
 
-Designates an exception-handling clause that can occur either inside a begin<code>/<code>end block, inside a method definition (which implies begin), or in modifier position (at the end of a statement).
+Designates an exception-handling clause that can occur either inside a begin / end block, inside a method definition (which implies begin), or in modifier position (at the end of a statement).
 rescue
 
 Inside a rescue clause, causes Ruby to return to the top of the enclosing code (the begin keyword, or top of method or block) and try executing the code again.
@@ -85,7 +85,7 @@ self
 Optional component of conditional statements (if, unless, when). Never mandatory, but allows for one-line conditionals without semi-colons.
 then
 
-The sole instance of the special class TrueClass. true encapsulates Boolean truth; however, <emph>all</emph> objects in Ruby are true in the Boolean sense (informally, they cause an if test to succeed), with the exceptions of false and nil.
+The sole instance of the special class TrueClass. true encapsulates Boolean truth; however, all objects in Ruby are true in the Boolean sense (informally, they cause an if test to succeed), with the exceptions of false and nil.
 true
 
 Undefines a given method, for the class or module in which it's called. If the method is defined higher up in the lookup path (such as by a superclass), it can still be called by instances classes higher up.

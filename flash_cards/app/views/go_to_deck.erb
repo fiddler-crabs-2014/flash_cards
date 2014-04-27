@@ -44,7 +44,7 @@
   </div>
 </nav>
 
-<% if @deck_id == "2" %> 
+<% if @deck_id == "2" %>
   <h1 id="chuck_h1" class="center">Chuck Norris</h1>
  <!--  <h2 id="chuck_h2" class="center">The flash card game</h2> -->
 <% end %>
@@ -84,8 +84,8 @@
 <% @round_score = Round.find(session[:round_id]).score %>
 
 
-<p class="center" id="score">Score: <span id="score_span"><%= @round_score %></span></p>
-<!-- <p class="center" id="counter">Counter: <span id="counter"></span></p> -->
+<p class="center" id="score"><span id="score_span">&nbsp;</span></p>
+<p class="center" id="counter"> Questions Remaining: <span id="counter"><%= @questions_remaining %></span></p>
 
 
 

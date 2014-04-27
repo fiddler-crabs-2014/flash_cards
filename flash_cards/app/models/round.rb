@@ -5,11 +5,11 @@ class Round < ActiveRecord::Base
   has_many :guesses
 
   def add_score
-    self.score += 5
+    self.score += 1
   end
 
   def subtract_score
-    self.score -= 5
+    self.score -= 0
   end
 end
 
