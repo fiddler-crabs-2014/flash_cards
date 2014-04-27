@@ -30,7 +30,7 @@ end
 
 get "/go_to_deck/:id" do
   if session[:user_id]
-    p @deck_id = params[:id]
+    @deck_id = params[:id]
     @cards = Card.where("deck_id = ?", @deck_id)
 
     unless session[:round_id]
@@ -56,6 +56,8 @@ get "/go_to_deck/:id" do
       @percentage = (@round.score.to_f/@cards.count.to_f)*100
       @round.score = @percentage.round(2)
       @round.save
+      @deck = Deck.find(@deck_id)
+      @all_rounds = Round.where(user_id: session[:user_id], deck_id: @deck_id)
       erb :statistics
     elsif @deck_id == "2"
       @sample = @cards.sample
