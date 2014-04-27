@@ -1,5 +1,5 @@
 <ul id="card_decks">
-<% @decks.each do |deck| %>
+<% @decks.shuffle.each do |deck| %>
   <li>
     <a href="/go_to_deck/<%= deck.id %>" alt="><%= deck.id %>">
       <img src="../img/<%= deck.img %>" alt="<%= deck.name %>">
