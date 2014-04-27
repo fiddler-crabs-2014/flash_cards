@@ -1,4 +1,4 @@
-ruby_deck = Deck.create(name: "ruby_deck", img: "ruby.png")
+ruby_deck = Deck.create(name: "Ruby", img: "ruby.png")
 
 card_file = File.readlines('./db/rubydeck.txt')
 card_file.each_slice(3) do |slice|
@@ -6,7 +6,7 @@ card_file.each_slice(3) do |slice|
 end
 ########################################################################################
 
-chuck_norris_deck = Deck.create(name: "chuck_norris", img: 'chucknorris.png')
+chuck_norris_deck = Deck.create(name: "Chuck Norris", img: 'chucknorris.png')
 chuck_norris = File.readlines('./db/chuck-norris.txt')
 chuck_norris.each do |line|
   line.gsub!("Chuck Norris", "________")
@@ -14,7 +14,7 @@ chuck_norris.each do |line|
 end
 
 ########################################################################################
-state_deck = Deck.create(name: "state_deck", img: 'USA.png')
+state_deck = Deck.create(name: "State Capitals", img: 'USA.png')
 
 card_file = File.readlines('./db/state_capitals.txt')
 card_file.each_slice(3) do |slice|
@@ -23,7 +23,7 @@ end
 
 ########################################################################################
 
-world_deck = Deck.create(name: "world_deck", img: 'WORLD.png')
+world_deck = Deck.create(name: "World Capitals", img: 'WORLD.png')
 
 card_file = File.readlines('./db/world_capitals.txt')
 card_file.each_slice(3) do |slice|
@@ -32,7 +32,7 @@ end
 
 ########################################################################################
 
-nato_deck = Deck.create(name: "NATO_deck", img: 'NATO.png')
+nato_deck = Deck.create(name: "NATO", img: 'NATO.png')
 
 card_file = File.readlines('./db/NATO_phonetic.txt')
 card_file.each_slice(3) do |slice|

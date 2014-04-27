@@ -17,6 +17,7 @@ $(document).ready(function() {
       data: answer_card_id
       //data: #card_id and answer
     }).success(function(data){
+      //$("#score_span").removeClass("hidden");
 
       $("#score_span").empty().append(data);
 
@@ -26,6 +27,7 @@ $(document).ready(function() {
     $("#answer_box").addClass("hidden");
     $("#answer").removeClass("hidden");
     $("#next_question").removeClass("hidden");
+    //$("#score").removeClass("hidden");
 
     $("#card").addClass("flipped");
 

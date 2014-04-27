@@ -3,7 +3,7 @@ class CreateRounds < ActiveRecord::Migration
     create_table :rounds do |t|
       t.belongs_to :deck
       t.belongs_to :user
-      t.integer  :score, default: 0
+      t.float  :score, default: 0
 
       t.timestamps
     end
