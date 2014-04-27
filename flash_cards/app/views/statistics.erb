@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Congrats, <%= session[:name] %>!</h1>
+  <p>You Finished !</p>
+
+
+  <% @round = Round.where(id: session[:round_id]).first %>
+  <% @deck_id = @round.deck_id %>
+  <% @total = Card.where(deck_id: @deck_id).count %>
+  <% @num_correct = Guess.where(round_id: session[:round_id], correct: true).count %>
+  <% @percentage = ((@num_correct.to_f/@total.to_f)*100).round(2) %>
+
+  <p>Here's how you did:</p>
+
+  <p>You answered <%= @num_correct %> out of <%= @total %> </p>
+  <p>That's <%= @percentage %>% correct! </p>
+
+  <form method="get" action="/decks_display">
+    <input type="submit" value="Play Again?">
+  </form>
+
+</div>
+
+
+<!-- @total = Guess.where(round_id: session[round_id]).count
+@num_correct = Guess.where(round_id: session[round_id], correct: true).count
+@percentage = @num_correct/@total -->
+<!--
+@round = Round.where(round_id: session[:round_id])
+@deck_id = @round.deck_id
+@total=Card.where(deck_id: @deck_id).count
+ -->
