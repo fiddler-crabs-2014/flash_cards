@@ -49,5 +49,16 @@ post '/logout' do
 
 end
 
+get '/show_all_results' do
+
+  @deck_results =[]
+  @all_decks = Deck.all
+
+  for i in (0..Deck.count)
+    @deck_results << Round.where(user_id: session[:user_id], deck_id: i)
+  end
+
+  erb :all_results
+end
 
 
