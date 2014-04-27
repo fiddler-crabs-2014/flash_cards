@@ -38,3 +38,12 @@ card_file = File.readlines('./db/NATO_phonetic.txt')
 card_file.each_slice(3) do |slice|
   Card.create({question: slice[0].chop, answer: slice[1].chop, deck_id: nato_deck.id})
 end
+
+########################################################################################
+
+number_deck = Deck.create(name: "number_deck")#, img: 'natophoneticalphabet.png')
+
+card_file = File.readlines('./db/numbers.txt')
+card_file.each_slice(3) do |slice|
+  Card.create({question: slice[0].chop, answer: slice[1].chop, deck_id: number_deck.id})
+end
