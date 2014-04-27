@@ -52,11 +52,26 @@ end
 get '/show_all_results' do
 
   @deck_results =[]
-  @all_decks = Deck.all
+  puts @all_decks = Deck.all
+  @all_decks.inspect
+  @all_deck_names=[]
+  @all_decks.each do |deck|
+    @all_deck_names << deck.name
+  end
 
-  for i in (0..Deck.count)
+  @all_deck_names
+
+  for i in (1..Deck.count)
     @deck_results << Round.where(user_id: session[:user_id], deck_id: i)
   end
+
+  # @deck_results.each_with_index do |deck, index|
+  #      puts @name_thing = @all_decks[index].name
+  #       deck.each do |round|
+  #       print round
+  #   end
+  # end
+
 
   erb :all_results
 end
