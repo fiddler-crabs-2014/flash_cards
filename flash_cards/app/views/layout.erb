@@ -30,6 +30,8 @@
       <li><span>Hello, <%= session[:name] %></span></li>
       <% @user_score = User.find(session[:user_id]).score %>
       <li><span>Score: <%= @user_score %></span></li>
+      <li><form method="get" action="/show_all_results">
+        <input type="submit" value="Show all Results" id="results_btn"></form></li>
       <li><form method="post" action="/logout">
         <input type="submit" value="Logout?" id="logout_btn">
       </form></li>

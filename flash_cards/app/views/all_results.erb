@@ -1,0 +1,14 @@
+
+
+
+
+    <p> Here are your all of your scores for all decks: </p>
+
+    <% @deck_results.each_with_index do |deck, index| %>
+      <%= @all_deck_names[index] %>:<br>
+        <% deck.each do |round| %>
+          --On <%=round.updated_at %> your score was: <%= round.score %>% <br>
+        <% end %>
+
+      <br>
+    <% end %>
