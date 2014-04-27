@@ -31,6 +31,7 @@ get "/go_to_deck/:id" do
     @cards.each do |card|
       @card_answers << card.answer
     end
+    puts "CARD ANSWERS: #{@card_answers}"
 
     @guesses = Guess.where(round_id: session[:round_id])
 
@@ -38,20 +39,26 @@ get "/go_to_deck/:id" do
     @guesses.each do |guess|
       @correct_answers << guess.correct_answer
     end
-
-    @remaining_questions = @card_answers - @correct_answers
-
-    if @remaining_questions.empty
+    puts "CORRECT ANSWERS: #{@correct_answers}"
+    @remaining_answers = @card_answers - @correct_answers
+    puts "REMAINING ANSWERS: #{@remaining_answers}"
+    if @remaining_answers.empty?
       #redirect to '/decks_display'
       erb :index
     else
-      @sample = @remaining_questions.sample
+      # @sample = @remaining_questions.sample
+      # @question = @sample.question
+      # @answer = @sample.answer
+      # @id = @sample.id
+      puts "sample question #{@random_answer = @remaining_answers.sample}"
+      puts "card #{@sample = Card.where(deck_id: @deck_id, answer: @random_answer).first}"
       @question = @sample.question
       @answer = @sample.answer
       @id = @sample.id
+      erb :go_to_deck, layout: false
     end
 
-   erb :go_to_deck, layout: false
+   #erb :go_to_deck, layout: false
   else
     redirect '/login'
   end
@@ -66,15 +73,15 @@ post '/answer' do
   answer = params[:answer]
   @round = Round.find(session[:round_id])
   @deck_id =  @round.deck_id
-
+  puts "THIS IS THE ANSWER #{answer}"
   if @card.correct_answer?(answer)
-    Guess.create(round: @round, guess: answer, correct: true)
+    Guess.create(round: @round, correct_answer: @card.answer, correct: true)
     user = User.find(session[:user_id])
     user.score += 5
     user.save
     @round.add_score
   else
-    Guess.create(round: @round, guess: answer, correct: false)
+    Guess.create(round: @round, correct_answer: @card.answer, correct: false)
     user = User.find(session[:user_id])
     user.score -= 5
     user.save
