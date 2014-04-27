@@ -18,11 +18,7 @@ $(document).ready(function() {
       //data: #card_id and answer
     }).success(function(data){
 
-      console.log(data);
-
       $("#score_span").empty().append(data);
-
-      console.log(score);
 
     });
 
