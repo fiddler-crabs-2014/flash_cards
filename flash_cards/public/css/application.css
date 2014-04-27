@@ -1,4 +1,4 @@
-body { padding-top: 70px; background: url('../img/gplaypattern.png');}
+body { padding-top: 70px; background: url('../img/gplaypattern.png'); font-family: 'Open Sans', Arial, sans-serif !important;}
 body#body_1 {}
 body#body_2 {background: url('../img/chucknorrisbg.jpeg'); background-size:100%;}
 
@@ -40,15 +40,12 @@ th {
 }
 
 .navbar-nav li span { color: #eee; line-height: 48px; margin-right:20px;}
-#logout_btn { background: none; border: 0; margin-top: 12px; color: #999;}
-#logout_btn:hover { color: #eee;}
+.nav_btn { background: none; border: 0; margin-top: 12px; color: #999;}
+.nav_btn:hover { color: #eee;}
 
 #login, #logout {
   float: left;
   width: 45%;
-  background-color: #f8f8f8;
-  border: 1px solid #e7e7e7;
-  font-family: Verdana, sans-serif;
   text-align: center;
   margin: 0 1%;
   padding: 2%;

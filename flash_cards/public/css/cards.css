@@ -1,4 +1,4 @@
-.card_container { 
+.card_container {
   width: 275px;
   height: 400px;
   position: relative;
@@ -58,7 +58,7 @@
 }
 
 body#body_2 #card .back, body#body_2 #card .front{
-  border: 15px solid rgb(121, 0, 0);  
+  border: 15px solid rgb(121, 0, 0);
 }
 
 #card.flipped {
@@ -141,27 +141,27 @@ text-shadow: 0;
 }
 
 body#body_2 input {
-  font-size: 16px;
+  font-size: 14px;
 }
 
-#chuck_h1 { 
+#chuck_h1 {
 color: white;
 font-size: 90px;
 font-family: 'Allerta Stencil', 'sans-serif';
 text-transform: uppercase;
 font-weight: bold;
-text-shadow: 1px 4px 1px rgb(121, 0, 0); 
+text-shadow: 1px 4px 1px rgb(121, 0, 0);
 margin-bottom: 100px;
 }
 
+#score {margin: 25px 0;}
 
-
-/*#chuck_h2 { 
+/*#chuck_h2 {
 color: white;
 font-size: 40px;
 font-family: 'Allerta Stencil', 'sans-serif';
 text-transform: uppercase;
 font-weight: bold;
-text-shadow: 1px 4px 1px rgb(121, 0, 0); 
+text-shadow: 1px 4px 1px rgb(121, 0, 0);
 margin-bottom: 60px;
 }*/

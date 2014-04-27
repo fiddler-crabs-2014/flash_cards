@@ -1,14 +1,13 @@
 
-
-
-
-    <p> Here are your all of your scores for all decks: </p>
-
-    <% @deck_results.each_with_index do |deck, index| %>
-      <%= @all_deck_names[index] %>:<br>
-        <% deck.each do |round| %>
-          --On <%=round.updated_at %> your score was: <%= round.score %>% <br>
-        <% end %>
-
-      <br>
-    <% end %>
+<div class="container list-group">
+    <ul>
+      <li class="list-group-item list-group-item-info">Your scores</li>
+      <% @deck_results.each_with_index do |deck, index| %>
+        <li class="list-group-item"><%= @all_deck_names[index] %>:&nbsp;<br>
+          <% deck.each do |round| %>
+            - On <%=round.updated_at %> your score was: <%= round.score %>% <br>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+</div>
