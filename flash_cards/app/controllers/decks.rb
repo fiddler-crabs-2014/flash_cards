@@ -14,7 +14,8 @@ post "/decks_display/:user_score" do
   @user_id = session[:user_id]
   @user = User.find(@user_id)
   @user.score = @user_score
-  redirect to '/decks_display'
+  #redirect to '/decks_display'
+  erb :statistics
 end
 
 get "/go_to_deck/:id" do
@@ -44,14 +45,14 @@ get "/go_to_deck/:id" do
     puts "REMAINING ANSWERS: #{@remaining_answers}"
     if @remaining_answers.empty?
       #redirect to '/decks_display'
-      erb :index
+      erb :statistics
     else
       # @sample = @remaining_questions.sample
       # @question = @sample.question
       # @answer = @sample.answer
       # @id = @sample.id
-      puts "sample question #{@random_answer = @remaining_answers.sample}"
-      puts "card #{@sample = Card.where(deck_id: @deck_id, answer: @random_answer).first}"
+      @random_answer = @remaining_answers.sample
+      @sample = Card.where(deck_id: @deck_id, answer: @random_answer).first
       @question = @sample.question
       @answer = @sample.answer
       @id = @sample.id
@@ -89,7 +90,6 @@ post '/answer' do
   end
   @round.save
   @round.score.to_s
-
   # redirect '/go_to_deck/'+@deck_id.to_s
 end
 

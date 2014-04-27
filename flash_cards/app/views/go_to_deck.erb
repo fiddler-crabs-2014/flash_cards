@@ -68,9 +68,25 @@
 </form>
 
 
+<% #unless @counter %>
+  <% #@counter= 1 %>
+<% #end %>
+  <% #@counter+=1 %>
+<% #end %>
+
+<% #if @counter %>
+  <%# @counter+=1 %>
+<% #else %>
+  <% #@counter=1 %>
+<% #end %>
+
 <% @round_score = Round.find(session[:round_id]).score %>
 
+
 <p class="center" id="score">Score: <span id="score_span"><%= @round_score %></span></p>
+<!-- <p class="center" id="counter">Counter: <span id="counter"></span></p> -->
+
+
 
 <form class="center" method="post" action="/decks_display/<%= @round_score %>" id="end_game">
   <input type="submit" value="End Game" class="orange_btn">
