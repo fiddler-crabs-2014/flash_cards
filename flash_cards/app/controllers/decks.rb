@@ -63,6 +63,7 @@ get "/go_to_deck/:id" do
       @answer = @sample.answer
       @id = @sample.id
       @user_score = User.find(session[:user_id]).score
+      @round_score = Round.find(session[:round_id]).score
       erb :go_to_deck, layout: false
     else
       @random_answer = @remaining_answers.sample
@@ -72,6 +73,7 @@ get "/go_to_deck/:id" do
       @id = @sample.id
       @questions_remaining = @remaining_answers.count
       @user_score = User.find(session[:user_id]).score
+      @round_score = Round.find(session[:round_id]).score
       erb :go_to_deck, layout: false
     end
 
