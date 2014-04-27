@@ -1,43 +1,30 @@
 <div class="container">
   <% unless session[:round_id]==nil %>
-    <h1>Congrats, <%= session[:name] %>!</h1>
-    <p>You Finished!</p>
-
+    <h1>Congrats, <%= session[:name].capitalize %>!</h1>
 
     <% @round = Round.where(id: session[:round_id]).first %>
     <% @deck_id = @round.deck_id %>
     <% @deck = Deck.find(@deck_id) %>
     <% @total = Card.where(deck_id: @deck_id).count %>
     <% @num_correct = Guess.where(round_id: session[:round_id], correct: true).count %>
-    <% #@percentage = ((@num_correct.to_f/@total.to_f)*100).round(2) %>
-
-    <p>Here's how you did:</p>
-
-    <p>You answered <%= @num_correct %> out of <%= @total %> correctly.</p>
-    <p>That's <%= @percentage %>% correct! </p>
-
-    <p>Here are your all of your scores for the <%= @deck.name %> deck: </p>
-    <% @all_rounds = Round.where(user_id: session[:user_id], deck_id: @deck_id) %>
-    <% @all_rounds.each do |round| %>
-    --On <%=round.updated_at %> your score was: <%= round.score %>% <br>
-    <% end %>
+    <ul>
+        <li class="list-group-item list-group-item-info">Score:</li>
+        <li class="list-group-item">You answered <%= @num_correct %> out of <%= @total %> correctly.</li>
+        <li class="list-group-item">That's <%= @percentage %>% correct! </li>
+        <li class="list-group-item">Here are your all of your scores for the <%= @deck.name %>: </li>
+    <li class="list-group-item">
+        <% @all_rounds = Round.where(user_id: session[:user_id], deck_id: @deck_id) %>
+        <% @all_rounds.each do |round| %>
+        - On <%=round.updated_at %> your score was: <%= round.score %>% <br>
+        <% end %>
+    </li>
+    </ul>
 
     <% session[:round_id] = nil%>
   <% end %>
 <br>
-<br>
   <form method="get" action="/decks_display">
-    <input type="submit" value="Play Again?">
+    <input type="submit" value="Play Again?" class="orange_btn">
   </form>
 
 </div>
-
-
-<!-- @total = Guess.where(round_id: session[round_id]).count
-@num_correct = Guess.where(round_id: session[round_id], correct: true).count
-@percentage = @num_correct/@total -->
-<!--
-@round = Round.where(round_id: session[:round_id])
-@deck_id = @round.deck_id
-@total=Card.where(deck_id: @deck_id).count
- -->

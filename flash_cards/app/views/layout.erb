@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="/css/application.css">
   <link rel="stylesheet" href="/css/cards.css">
   <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
@@ -24,16 +25,16 @@
 
 <nav class="navbar navbar-inverse navbar-fixed-top " role="navigation">
   <div class="container">
-    <a class="navbar-brand" href="/">Flash Cards</a>
+    <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-flash"> </span>Flash Cards</a>
     <ul class="nav navbar-nav navbar-right">
     <% if session[:user_id] %>
-      <li><span>Hello, <%= session[:name] %></span></li>
+      <li><span>Hello, <%= session[:name].capitalize %></span></li>
       <% @user_score = User.find(session[:user_id]).score %>
       <li><span>Score: <%= @user_score %></span></li>
       <li><form method="get" action="/show_all_results">
-        <input type="submit" value="Show all Results" id="results_btn"></form></li>
+        <input type="submit" value="Show all Results" class="nav_btn"></form></li>
       <li><form method="post" action="/logout">
-        <input type="submit" value="Logout?" id="logout_btn">
+        <input type="submit" value="Logout?" class="nav_btn">
       </form></li>
 
       <% else %>

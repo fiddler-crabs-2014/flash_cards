@@ -92,14 +92,14 @@ post '/answer' do
     user.score += 5
     user.save
     @round.add_score
-    @result = "Correct! +5 points!"
+    @result = "<span class=\"alert alert-success\">Correct! +5 points!</span>"
   else
     Guess.create(round: @round, correct_answer: @card.answer, correct: false)
     user = User.find(session[:user_id])
     user.score -= 5
     user.save
     @round.subtract_score
-    @result = "Incorrect! :( -5 points!"
+    @result = "<span class=\"alert alert-danger\">Incorrect! :( -5 points!</span>"
   end
   @deck = (Deck.where(id: @deck_id)).first
   @total_questions = @deck.cards.count

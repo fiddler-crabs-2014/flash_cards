@@ -1,30 +1,65 @@
 <div class="container">
-  <h1 class="center">Welcome to a moderately functioning FlashCard Game!</h1>
+  <h1 class="center">Welcome to a FlashCard Game!</h1>
   <br>
-  <div class="error center">
+  <div class="center">
   <% if @message %>
-    <% @message.each do |message| %>
-    --<%= message %><br>
-    <% end %>
-  <br>
+    <ul>
+      <% @message.each do |message| %>
+        <li class="alert alert-danger" style="list-style-type: none;"><%= message %></li>
+      <% end %>
+    </ul>
   <% end %>
+
   </div>
 
-  <div id="login">
-    <p>Login to start:</p>
-      <form method="post" action="/login">
-        Email: <input type="text" name="email"><br><br>
-        Password: <input type="password" name="password"><br><br>
+  <div id="login" class="well well-lg">
+    <h3>Existing User</h3>
+      <form method="post" action="/login" class="form-horizontal">
+
+        <div class="control-group">
+          <label class="control-label" for="inputSubject">Email: </label>
+          <div class="controls">
+              <input type="text" name="email">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="inputSubject">Password: </label>
+          <div class="controls">
+              <input type="password" name="password">
+          </div>
+        </div>
+        <br>
         <input type="submit" value="Login" class="orange_btn">
       </form>
   </div>
 
-  <div id="logout">
-    <p>Or Create a new user! </p>
-    <form method="post" action="/sign_up">
-      Name: <input type="text" name="name"><br><br>
-      Email: <input type="text" name="email"><br><br>
-      Password: <input type="password" name="password"><br><br>
+  <div id="logout" class="well well-lg">
+    <h3>Create an account!</h3>
+    <form method="post" action="/sign_up" class="form-horizontal">
+
+        <div class="control-group">
+          <label class="control-label" for="inputSubject">Name: </label>
+          <div class="controls">
+              <input type="text" name="name">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="inputSubject">Email: </label>
+          <div class="controls">
+              <input type="text" name="email">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="inputSubject">Password: </label>
+          <div class="controls">
+              <input type="password" name="password">
+          </div>
+        </div>
+
+      <br>
       <input type="submit" value="Sign Up!" class="orange_btn">
     </form>
   </div>
