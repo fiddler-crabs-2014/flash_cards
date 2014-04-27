@@ -10,7 +10,7 @@ chuck_norris_deck = Deck.create(name: "chuck_norris", img: 'chucknorris.png')
 chuck_norris = File.readlines('./db/chuck-norris.txt')
 chuck_norris.each do |line|
   line.gsub!("Chuck Norris", "________")
-  Card.create({question: line, answer: "Chuck Norris", deck_id: chuck_norris_deck.id})
+  Card.create({question: line.chop, answer: "Chuck Norris", deck_id: chuck_norris_deck.id})
 end
 
 ########################################################################################
