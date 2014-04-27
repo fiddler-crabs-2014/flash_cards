@@ -14,16 +14,16 @@ chuck_norris.each do |line|
 end
 
 ########################################################################################
-state_deck = Deck.create(name: "state_deck")
+state_deck = Deck.create(name: "state_deck")#, img: 'USA.png')
 
 card_file = File.readlines('./db/state_capitals.txt')
 card_file.each_slice(3) do |slice|
-  Card.create({question: slice[0].chop, answer: slice[1].chop, deck_id: ruby_deck.id})
+  Card.create({question: slice[0].chop, answer: slice[1].chop, deck_id: state_deck.id})
 end
 
 ########################################################################################
 
-world_deck = Deck.create(name: "world_deck")
+world_deck = Deck.create(name: "world_deck")#, img: 'WORLD.png')
 
 card_file = File.readlines('./db/world_capitals.txt')
 card_file.each_slice(3) do |slice|
@@ -32,9 +32,9 @@ end
 
 ########################################################################################
 
-NATO_deck = Deck.create(name: "NATO_deck")
+nato_deck = Deck.create(name: "NATO_deck")#, img: 'natophoneticalphabet.png')
 
 card_file = File.readlines('./db/NATO_phonetic.txt')
 card_file.each_slice(3) do |slice|
-  Card.create({question: slice[0].chop, answer: slice[1].chop, deck_id: NATO_deck.id})
+  Card.create({question: slice[0].chop, answer: slice[1].chop, deck_id: nato_deck.id})
 end
