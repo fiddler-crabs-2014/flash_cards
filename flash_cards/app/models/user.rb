@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   #add validation
   validates :email, presence: true, uniqueness: true
-  #validates :email, format:
+  validates :email, format: /\w{1,}+[@]+\w{1,}+[.]+\w{2,}/
   validates :name, presence: true
   validates :password, presence: true
 
