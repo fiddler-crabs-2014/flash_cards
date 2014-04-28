@@ -29,7 +29,7 @@
     <ul class="nav navbar-nav navbar-right">
     <% if session[:user_id] %>
       <li><span>Hello, <%= session[:name].capitalize %></span></li>
-      <% #@user_score = User.find(session[:user_id]).score %>
+      <% @user_score = User.find(session[:user_id]).score %>
       <li><span>Score: <%= @user_score %></span></li>
       <li><form method="get" action="/show_all_results">
         <input type="submit" value="Show all Results" class="nav_btn"></form></li>

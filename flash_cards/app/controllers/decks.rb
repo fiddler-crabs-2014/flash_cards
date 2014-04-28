@@ -53,8 +53,8 @@ get "/go_to_deck/:id" do
     @remaining_answers = @card_answers - @correct_answers
     if @remaining_answers.empty? && @deck_id != "2"
       @round = Round.find(session[:round_id])
-      @percentage = (@round.score.to_f/@cards.count.to_f)*100
-      @round.score = @percentage.round(2)
+      @percentage = ((@round.score.to_f/@cards.count.to_f)*100).round(2)
+      @round.score = @percentage
       @round.save
       @deck = Deck.find(@deck_id)
       @all_rounds = Round.where(user_id: session[:user_id], deck_id: @deck_id)
