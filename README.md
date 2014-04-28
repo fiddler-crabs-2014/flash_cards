@@ -7,9 +7,9 @@ Users have the ability to play a flash card guessing game with the cards provide
 
 ####Contributors:
 
-######Name: 			Github:
+######Name: 		- Github:
 
-..* Adam Godel 		- Onweapps <br>
-..* Brendan Scarano - Onaracs <br>
-..* Neal Fennimore 	- NealFennimore <br>
-..* Shaun McGeever 	- ShaunMcGeever 
+* Adam Godel 		- Onweapps
+* Brendan Scarano 	- Onaracs
+* Neal Fennimore 	- NealFennimore
+* Shaun McGeever 	- ShaunMcGeever 
